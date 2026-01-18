@@ -32,8 +32,8 @@ export default defineUserConfig({
     hostname: 'https://euoracraft.zient.top',
 
     /* 文档仓库配置，用于 editLink */
-    docsRepo: 'https://github.com/EuoraCraft/EuoraCraft-Docs',
-    docsDir: '.',
+    docsRepo: 'https://github.com/ECLteam/ECL-Docs',
+    docsDir: 'docs',
     docsBranch: 'main',
 
     plugins: { 
