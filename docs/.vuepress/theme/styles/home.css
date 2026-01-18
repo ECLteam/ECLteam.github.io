@@ -1,0 +1,185 @@
+.vp-home-doc-hero {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  --vp-home-hero-name-font-size: 4rem;
+  --vp-home-hero-name-line-height: 1.2;
+  --vp-c-brand: #646cff; /* 定义主题色变量 */
+  --vp-home-hero-image-background-image: linear-gradient(
+    -45deg,
+    var(--vp-c-brand-soft) 50%,
+    rgba(11, 80, 133, 0.35) 50%
+  );
+  --vp-home-hero-image-filter: blur(55px);
+
+  /* 初始状态：淡入动画 */
+  opacity: 0;
+  animation: heroFadeIn 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+/* 主容器入场动画 */
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.doc-hero-container {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 1152px;
+}
+
+/* 标题：添加背景渐变动画 */
+.name {
+  font-size: var(--vp-home-hero-name-font-size) !important;
+  line-height: var(--vp-home-hero-name-line-height) !important;
+  
+  /* 渐变文本动画 */
+  background: linear-gradient(
+    135deg,
+    var(--vp-c-brand) 0%,
+    #747bff 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% auto;
+  animation: gradientFlow 3s ease infinite;
+}
+
+/* 渐变流动效果 */
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 文字阴影呼吸效果 */
+.name.clip {
+  text-shadow: 2px 1px 2px rgba(0, 0, 0, 0.3);
+  animation: textPulse 4s ease-in-out infinite;
+}
+
+@keyframes textPulse {
+  0%, 100% {
+    text-shadow: 2px 1px 2px rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    text-shadow: 2px 1px 8px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* 按钮组：延迟动画 */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0;
+  margin-top: 2rem;
+  
+  /* 初始隐藏，延迟显示 */
+  opacity: 0;
+  animation: actionsSlideUp 0.6s ease-out 0.5s forwards;
+}
+
+@keyframes actionsSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 按钮：现代悬浮效果 */
+.vp-button {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  min-width: 7em;
+  padding: 0.75em 1.5em;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* 初始状态：错开动画 */
+  opacity: 0;
+  animation: buttonStagger 0.4s ease-out forwards;
+}
+
+/* 按钮错开延迟 */
+.vp-button:nth-child(1) { animation-delay: 0.6s; }
+.vp-button:nth-child(2) { animation-delay: 0.7s; }
+.vp-button:nth-child(3) { animation-delay: 0.8s; }
+
+@keyframes buttonStagger {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 按钮悬浮/点击效果 */
+.vp-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.vp-button:active {
+  transform: translateY(0);
+  transition-duration: 0.1s;
+}
+
+/* 光波涟漪效果 */
+.vp-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.vp-button:active::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* 响应式优化 */
+@media (max-width: 768px) {
+  .vp-home-doc-hero {
+    min-height: auto;
+    padding: 3rem 1rem;
+  }
+  
+  /* 移动端减弱动画 */
+  .name {
+    animation-duration: 2s;
+  }
+}
+
+/* 可访问性：尊重用户偏好 */
+@media (prefers-reduced-motion: reduce) {
+  .vp-home-doc-hero,
+  .name,
+  .name.clip,
+  .actions,
+  .vp-button {
+    animation: none !important;
+    transition: none !important;
+  }
+}

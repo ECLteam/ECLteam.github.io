@@ -1,0 +1,37 @@
+:root {
+  /** 方案A：柔和雾霾蓝（推荐） */
+  --vp-c-brand-1: #5a8fbb;      /* 主色 - 降低饱和度 */
+  --vp-c-brand-2: #7aa8cc;      /* 悬停 - 更柔和 */
+  --vp-c-brand-3: #9bc0dd;      /* 点缀 - 淡雅 */
+  /*--vp-c-brand-soft: rgba(90, 143, 187, 0.12);  弱化背景 */
+
+  /** 背景颜色 - 微调为更暖的灰 
+  --vp-c-bg: #ffffff;
+  --vp-c-bg-alt: #f8fafc;      
+  --vp-c-bg-elv: #ffffff;
+  --vp-c-bg-soft: #f1f5f9;*/
+
+  /** 文本颜色 */
+  --vp-c-text-1: #1e293b;       /* 深蓝灰文本 */
+  --vp-c-text-2: #475569;
+  --vp-c-text-3: #94a3b8;
+}
+
+/** 深色模式 - 降低亮度 */
+[data-theme="dark"] {
+  --vp-c-brand-1: #7aa8cc;      /* 柔和亮蓝 */
+  --vp-c-brand-2: #5a8fbb;      /* 主色 */
+  --vp-c-brand-3: #44729a;      /* 深蓝 */
+  --vp-c-brand-soft: rgba(90, 143, 187, 0.18);
+
+  /** 深色背景 */
+  --vp-c-bg: #0f172a;
+  --vp-c-bg-alt: #0b1120;
+  --vp-c-bg-elv: #1e293b;
+  --vp-c-bg-soft: #1e293b;
+
+  /** 浅色文本 */
+  --vp-c-text-1: #f8fafc;
+  --vp-c-text-2: #e2e8f0;
+  --vp-c-text-3: #cbd5e1;
+}
