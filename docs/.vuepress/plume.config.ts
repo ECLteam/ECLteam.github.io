@@ -20,7 +20,6 @@ import sidebar from './sidebar'
  */
 export default defineThemeConfig({
   logo: '/logo.png', // 站点 Logo
-  //sidebar,
   sidebar,
   appearance: true,  // 配置 深色模式
 

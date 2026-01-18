@@ -25,19 +25,19 @@ export default defineUserConfig({
   ],
 
   bundler: viteBundler(),
-  shouldPrefetch: false, // 站点较大，页面数量较多时，不建议启用
+  shouldPrefetch: true, // 站点较大，页面数量较多时，不建议启用
 
   theme: plumeTheme({
     /* 添加您的部署域名, 有助于 SEO, 生成 sitemap */
-    // hostname: 'https://your_site_url',
+    hostname: 'https://euoracraft.zient.top',
 
     /* 文档仓库配置，用于 editLink */
-    // docsRepo: '',
-    // docsDir: 'docs',
-    // docsBranch: '',
+    docsRepo: 'https://github.com/EuoraCraft/EuoraCraft-Docs',
+    docsDir: '.',
+    docsBranch: 'main',
 
     plugins: { 
-      git: process.env.NODE_ENV === true 
+      git: true
     },
     /* 页内信息 */
      editLink: true,
