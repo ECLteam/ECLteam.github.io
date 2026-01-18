@@ -10,6 +10,8 @@ on:
 jobs:
   docs:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
     # 部署 GitHub Pages 需要的权限
     permissions:
       contents: write  # 允许写入仓库内容（用于推送 gh-pages 分支）
