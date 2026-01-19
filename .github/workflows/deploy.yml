@@ -10,7 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     
     permissions:
-      contents: write  # 允许写入 gh-pages 分支
+      contents: write        # 允许写入 gh-pages 分支
+      pages: write           # 允许操作 GitHub Pages
+      id-token: write        # 用于 Pages 部署的身份验证
 
     steps:
       - uses: actions/checkout@v4
@@ -24,7 +26,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: 'pnpm'  # ✅ 添加缓存加
+          cache: 'pnpm'
+
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
 
@@ -40,10 +43,22 @@ jobs:
             echo "ℹCNAME not found"
           fi
 
-      - name: Deploy to GitHub Pages
-        uses: crazy-max/ghaction-github-pages@v4
+      # 步骤1: 准备 GitHub Pages 部署环境（官方动作）
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v5
+
+      # 步骤2: 上传构建产物到 Pages artifact
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          target_branch: gh-pages
-          build_dir: docs/.vuepress/dist
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # 指向 VuePress 构建后的目录
+          path: docs/.vuepress/dist
+
+      # 步骤3: 部署到 GitHub Pages（官方动作，自动接管配置）
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+        # 该动作会自动:
+        # 1. 将 artifact 部署到 Pages
+        # 2. 自动配置仓库的 Pages 源为 gh-pages 分支（无需手动设置）
+        # 3. 处理域名（CNAME）等配置
