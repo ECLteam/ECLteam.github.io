@@ -4,7 +4,7 @@ title: Home
 config:
   - type: doc-hero
     hero:
-      name: ECL Launcher Documentation
+      name: ECL Launcher
       text: Documentation
       tagline: Help for using EuoraCraft Launcher
       image: /logo.png
