@@ -1,2 +1,2 @@
-# ECL-Docs
+# EuoraCraft Launcher Docs
 EuoraCraft-Launcher 启动器的官方文档仓库

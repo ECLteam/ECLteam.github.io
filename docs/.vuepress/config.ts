@@ -14,8 +14,20 @@ import { resolve } from 'node:path'
 export default defineUserConfig({
   base: '/',
   lang: 'zh-CN',
-  title: 'ECL-Docs',
-  description: 'EuoraCraft-Launcher 启动器使用文档',
+  title: 'ECL 文档',
+  description: 'EuoraCraft Launcher 使用文档、开发文档与技术教程',
+  locales: {
+    '/': {
+      lang: 'zh-CN',
+      title: 'ECL 文档',
+      description: 'EuoraCraft Launcher 使用文档、开发文档与技术教程',
+    },
+    '/en/': {
+      lang: 'en-US',
+      title: 'ECL Docs',
+      description: 'EuoraCraft Launcher documentation',
+    },
+  },
 
   head: [
     // 配置站点图标
@@ -32,6 +44,18 @@ export default defineUserConfig({
   shouldPrefetch: true, // 站点较大，页面数量较多时，不建议启用
 
   theme: plumeTheme({
+    locales: {
+      '/': {
+        selectLanguageName: '简体中文',
+        selectLanguageText: '选择语言',
+        selectLanguageAriaLabel: '选择语言',
+      },
+      '/en/': {
+        selectLanguageName: 'English',
+        selectLanguageText: 'Languages',
+        selectLanguageAriaLabel: 'Select language',
+      },
+    },
     /* 添加您的部署域名, 有助�?SEO, 生成 sitemap */
     hostname: 'https://docs.eclteam.top',
 

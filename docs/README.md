@@ -4,8 +4,8 @@ title: 首页
 config:
   - type: doc-hero
     hero:
-      name: ECL 启动器
-      text: 文档站 | Documentation
+      name: ECL 启动器文档站
+      text: Documentation
       tagline: 为使用 EuoraCraft-Launcher 而提供帮助
       image: /logo.png
       actions:

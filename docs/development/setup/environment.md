@@ -1,11 +1,11 @@
 ---
 title: 环境搭建
 createTime: 2026/08/15 00:54:10
-permalink: /dev/lanucherdev/envsetup
+permalink: /development/setup/environment/
 ---
 
 ::: warning 提示
-本页面为开发者文档，主要面向 EuoraCraft Launcher 的开发者和贡献者。如果您是普通用户，那么请您关闭此页面或者返回[主页](../README.md)，此页面不影响您使用 EuoraCraft Launcher 的功能。
+本页面为开发者文档，主要面向 EuoraCraft Launcher 的开发者和贡献者。如果您是普通用户，可以返回[主页](/)；此页面不影响您使用 EuoraCraft Launcher 的功能。
 :::
 
 ## 开始

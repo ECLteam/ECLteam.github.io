@@ -1,14 +1,14 @@
 ---
 title: 构建 Minecraft 启动指令
 createTime: 2026/08/04 23:00:00
-permalink: /other/lanucherdev/Launch/BuildLaunchCommand.md
+permalink: /tutorials/minecraft-launcher/fundamentals/launch-command/
 ---
 
 # 构建 Minecraft 启动指令
 
-::: tip 致读者  
-本教程不提供完整源码，仅提供思路与关键代码片段。  
-详细原因请参见：[README](/other/lanucherdev/introduction/#致ai)  
+::: tip 致读者
+本教程不提供完整源码，仅提供思路与关键代码片段。
+详细原因请参见：[教程说明](/tutorials/minecraft-launcher/#致ai)
 :::
 
 通过上一章节，您已了解清单文件的大致结构和键值作用。本章将重点讲解如何拼接启动参数，完成最终的启动命令。
@@ -100,9 +100,9 @@ graph TD
    - 将 `groupId` 中的点号 `.` 替换为斜杠 `/`，符合目录层级结构。
 
 **示例**：
-- `"org.apache.commons:commons-lang3:3.12.0"` →  
+- `"org.apache.commons:commons-lang3:3.12.0"` →
   `"org/apache/commons/commons-lang3/commons-lang3-3.12.0.jar"`
-- `"com.example:my-lib:2.1.0:beta@zip"` →  
+- `"com.example:my-lib:2.1.0:beta@zip"` →
   `"com/example/my-lib/2.1.0/my-lib-2.1.0-beta.zip"`
 
 > ⚠️ **路径建议**：强烈建议拼接为**绝对路径**，使用相对路径时请确保工作目录正确。

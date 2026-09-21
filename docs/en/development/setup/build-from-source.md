@@ -1,24 +1,24 @@
 ---
-title: 开发
-permalink: /dev/srgvbs/
+title: Build from Source
+permalink: /en/development/setup/build-from-source/
 createTime: 2026/08/12 21:30:00
 ---
 
-# 项目构建
+# Build the Project
 
-EuoraCraft Launcher 由 Python 后端、frontend 前端子模块和 `ECL/game` Core 子模块组成。克隆项目时必须同时拉取子模块。
+EuoraCraft Launcher consists of a Python backend, the `frontend` frontend submodule, and the `ECL/game` core submodule. Clone the repository together with its submodules.
 
-## 环境要求
+## Requirements
 
-| 工具 | 版本 |
+| Tool | Version |
 | --- | --- |
-| Python | 3.11 或更高，推荐 3.12 |
+| Python | 3.11 or later; 3.12 recommended |
 | Node.js | 22 |
 | pnpm | 10.34.4 |
-| Git | 最新稳定版 |
+| Git | Latest stable version |
 
-::: warning Linux 系统依赖
-Ubuntu/Debian 需要额外安装 GTK、WebKit 和打包工具：
+::: warning Linux system dependencies
+Ubuntu/Debian additionally require GTK, WebKit, and packaging tools:
 
 ```bash
 sudo apt-get update
@@ -26,21 +26,21 @@ sudo apt-get install -y libgtk-3-dev libwebkit2gtk-4.1-dev libappindicator3-dev 
 ```
 :::
 
-## 1. 拉取源码
+## 1. Clone the source
 
 ```bash
 git clone --recurse-submodules https://github.com/ECLteam/EuoraCraft-Launcher.git
 cd EuoraCraft-Launcher
 ```
 
-如果已经使用普通方式克隆，补充初始化子模块：
+If you cloned normally, initialize the submodules afterwards:
 
 ```bash
 git submodule sync --recursive
 git submodule update --init --recursive
 ```
 
-## 2. 安装后端依赖
+## 2. Install backend dependencies
 
 ::: code-tabs
 @tab Windows PowerShell
@@ -61,7 +61,7 @@ python -m pip install -e ".[dev]"
 ```
 :::
 
-## 3. 构建前端
+## 3. Build the frontend
 
 ```bash
 cd frontend
@@ -70,24 +70,24 @@ pnpm build
 cd ..
 ```
 
-前端构建结果位于 `frontend/dist`，后端运行和 PyInstaller 打包都会读取该目录。
+The frontend build output is located in `frontend/dist`. Both the backend runtime and PyInstaller packaging read this directory.
 
-## 4. 运行源码
+## 4. Run from source
 
 ```bash
 python main.py
 ```
 
-Microsoft 登录需要在根目录创建 `.env` 并填写 `MICROSOFT_CLIENT_ID`；未配置时仍可进行不依赖 Microsoft 登录的开发。运行日志位于 `ECL_data/logs`。
+Microsoft sign-in requires a `.env` file in the repository root containing `MICROSOFT_CLIENT_ID`. Development that does not depend on Microsoft sign-in still works without it. Runtime logs are stored in `ECL_data/logs`.
 
-## 5. 检查项目
+## 5. Check the project
 
 ```bash
 python -m ruff check ECL tests
 python -m pytest -q
 ```
 
-修改过前端时，在 `frontend` 目录额外运行：
+After changing the frontend, also run the following commands in `frontend`:
 
 ```bash
 pnpm lint
@@ -96,7 +96,7 @@ pnpm test
 pnpm build
 ```
 
-## 6. 打包桌面程序
+## 6. Package the desktop app
 
 ::: code-tabs
 @tab Windows PowerShell
@@ -112,14 +112,14 @@ ECL_CONSOLE=1 ECL_UPX=0 python -m PyInstaller --noconfirm EuoraCraft-Launcher.sp
 ```
 :::
 
-| 平台 | 构建结果 |
+| Platform | Build output |
 | --- | --- |
 | Windows | `dist/EuoraCraft Launcher.exe` |
 | Linux | `dist/EuoraCraft Launcher` |
 | macOS | `dist/EuoraCraft Launcher.app` |
 
-终端最后出现 `Build complete!`，并且 `dist` 中存在对应平台的制品，即表示构建完成。
+The build is complete when the terminal displays `Build complete!` and the corresponding artifact exists in `dist`.
 
-::: tip 常见问题
-提示缺少 `frontend/dist` 时，请重新执行第 3 步；子模块目录为空时，请重新运行 `git submodule update --init --recursive`。
+::: tip Common issues
+If `frontend/dist` is missing, repeat step 3. If submodule directories are empty, run `git submodule update --init --recursive` again.
 :::

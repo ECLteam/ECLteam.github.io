@@ -12,8 +12,10 @@
 
 import { defineThemeConfig } from "vuepress-theme-plume";
 import navbar from "./navbar";
-import collections from "./collections";
+import navbarEn from "./navbar.en";
+import collections, { englishCollections } from "./collections";
 import sidebar from "./sidebar";
+import sidebarEn from "./sidebar.en";
 
 // 获取当前年份
 const currentYear = new Date().getFullYear();
@@ -64,8 +66,8 @@ export default defineThemeConfig({
    */
   profile: {
     avatar: "/logo.png",
-    name: "ECL-Docs",
-    description: "EuoraCraft-Launcher 启动器使用文档",
+    name: "ECL 文档",
+    description: "EuoraCraft Launcher 使用文档、开发文档与技术教程",
     circle: true,
     location: '中国',
     organization: "ECLTeam",
@@ -73,6 +75,24 @@ export default defineThemeConfig({
 
   navbar,
   collections,
+  locales: {
+    '/en/': {
+      navbar: navbarEn,
+      sidebar: sidebarEn,
+      collections: englishCollections,
+      footer: {
+        message:
+          `<a href="https://icp.gov.moe/?keyword=20269999" target="_blank">萌ICP备20269999号</a>`,
+        copyright:
+          `Copyright ${yearRange} © ECLTeam. Built with <a target="_blank" href="https://v2.vuepress.vuejs.org/">VuePress</a> and <a target="_blank" href="https://theme-plume.vuejs.press">vuepress-theme-plume</a>.`,
+      },
+      profile: {
+        name: 'ECL Docs',
+        description: 'EuoraCraft Launcher documentation and technical tutorials',
+        location: 'China',
+      },
+    },
+  },
 
   /**
    * 公告板

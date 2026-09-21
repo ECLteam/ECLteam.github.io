@@ -1,14 +1,14 @@
 ---
 title: 了解 Minecraft 版本清单文件
 createTime: 2026/08/04 23:00:00
-permalink: /other/lanucherdev/Launch/ManifestLearn
+permalink: /tutorials/minecraft-launcher/fundamentals/version-manifest/
 ---
 
 # 了解 Minecraft 版本清单文件
 
 ::: tip 致读者
 本教程不提供完整源码，仅提供思路与关键代码片段。  
-详细原因请参见：[README](/other/lanucherdev/introduction/#致ai)
+详细原因请参见：[教程说明](/tutorials/minecraft-launcher/#致ai)
 :::
 
 Minecraft 启动器需要从版本清单（`version.json`）中读取大量配置信息，本章将重点剖析清单文件的核心结构，并说明哪些字段是启动过程中必须关注的。

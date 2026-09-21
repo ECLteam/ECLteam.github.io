@@ -1,48 +1,50 @@
 import type { ThemeSidebarMulti } from 'vuepress-theme-plume'
 
 const sidebar: ThemeSidebarMulti = {
-    "/guide/": [
-      {
-        text: "开始",
-        icon: "material-symbols:menu-book",
-        collapsed: false,
-        items: [
-          { text: "介绍", link: "/guide/1.开始/introduction.html", icon: "material-symbols:description" },
-        ],
-      },
-      {
-        text: "其他",
-        icon: "material-symbols:more-vert",
-        collapsed: false,
-        items: [
-          { text: "用户协议", link: "/guide/4.其他/user-agreement.html", icon: "material-symbols:settings" },
-        ],
-      }
-    ],
-    "/other/lanucherdev/": [
-      { text: "介绍", link: "/other/lanucherdev/introduction/", icon: "material-symbols:description" },
-      {
-        text: "启动器开发",
-        icon: "material-symbols:menu-book",
-        collapsed: false,
-        items: [
-          { text: "Minecraft 版本清单", link: "/other/lanucherdev/Launch/ManifestLearn", icon: "material-symbols:description" },
-          { text: "构建 Minecraft 启动指令", link: "/other/lanucherdev/Launch/BuildLaunchCommand", icon: "material-symbols:description" },
-        ],
-      }
-    ],
-    "/dev/": [
-      { text: "介绍", link: "/dev/", icon: "material-symbols:description" },
-      {
-        text: "启动器开发",
-        icon: "material-symbols:menu-book",
-        collapsed: false,
-        items: [
-          { text: "搭建环境", link: "/dev/lanucherdev/envsetup", icon: "material-symbols:description" },
-        ],
-      }
-    ],
-
+  '/guide/': [
+    //{ text: '使用', link: '/guide/introduction/', icon: 'material-symbols:menu-book-outline' },
+    {
+      text: '快速开始',
+      icon: 'material-symbols:rocket-launch-outline',
+      collapsed: false,
+      items: [
+        { text: '介绍', link: '/guide/introduction/', icon: 'material-symbols:info-outline' },
+      ],
+    },
+    {
+      text: '政策与协议',
+      icon: 'material-symbols:gavel-outline',
+      collapsed: false,
+      items: [
+        { text: '用户协议', link: '/guide/user-agreement/', icon: 'material-symbols:description-outline' },
+      ],
+    },
+  ],
+  '/development/': [
+    { text: '开发', link: '/development/', icon: 'material-symbols:code' },
+    {
+      text: '开始开发',
+      icon: 'material-symbols:terminal',
+      collapsed: false,
+      items: [
+        { text: '搭建开发环境', link: '/development/setup/environment/', icon: 'material-symbols:settings-outline' },
+        { text: '从源码构建', link: '/development/setup/build-from-source/', icon: 'material-symbols:build-outline' },
+      ],
+    },
+  ],
+  '/tutorials/': [
+    { text: '技术教程', link: '/tutorials/', icon: 'material-symbols:school-outline' },
+    {
+      text: 'Minecraft 启动器原理',
+      icon: 'material-symbols:videogame-asset-outline',
+      collapsed: false,
+      items: [
+        { text: '介绍', link: '/tutorials/minecraft-launcher/', icon: 'material-symbols:info-outline' },
+        { text: '版本清单文件', link: '/tutorials/minecraft-launcher/fundamentals/version-manifest/', icon: 'material-symbols:account-tree-outline' },
+        { text: '构建启动指令', link: '/tutorials/minecraft-launcher/fundamentals/launch-command/', icon: 'material-symbols:terminal' },
+      ],
+    },
+  ],
 }
 
 export default sidebar
